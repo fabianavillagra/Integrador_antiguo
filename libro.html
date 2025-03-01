@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Volteo de Páginas</title>
+  <style>
+    /* Estilos adicionales si son necesarios */
+    .magazine {
+      width: 400px; /* Ancho del libro */
+      height: 300px; /* Alto del libro */
+      position: relative;
+    }
+    .turn-page {
+      background-color: #fff; /* Color de fondo de las páginas */
+      border: 1px solid #ccc; /* Borde de las páginas */
+      box-shadow: 0 0 5px rgba(0, 0, 0, 0.3); /* Sombra de las páginas */
+      padding: 20px; /* Espaciado interno para el contenido */
+      box-sizing: border-box; /* El padding se incluye en el ancho y alto */
+    }
+  </style>
+</head>
+<body>
+  <div class="magazine">
+    <div class="turn-page">
+      <div class="page">
+        <h2>Página 1</h2>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed suscipit eros sit amet odio dapibus viverra. Nullam commodo justo vitae ipsum laoreet rhoncus.</p>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed suscipit eros sit amet odio dapibus viverra. Nullam commodo justo vitae ipsum laoreet rhoncus.</p>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed suscipit eros sit amet odio dapibus viverra. Nullam commodo justo vitae ipsum laoreet rhoncus.</p>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed suscipit eros sit amet odio dapibus viverra. Nullam commodo justo vitae ipsum laoreet rhoncus.</p>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed suscipit eros sit amet odio dapibus viverra. Nullam commodo justo vitae ipsum laoreet rhoncus.</p>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed suscipit eros sit amet odio dapibus viverra. Nullam commodo justo vitae ipsum laoreet rhoncus.</p>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed suscipit eros sit amet odio dapibus viverra. Nullam commodo justo vitae ipsum laoreet rhoncus.</p>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed suscipit eros sit amet odio dapibus viverra. Nullam commodo justo vitae ipsum laoreet rhoncus.</p>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed suscipit eros sit amet odio dapibus viverra. Nullam commodo justo vitae ipsum laoreet rhoncus.</p>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed suscipit eros sit amet odio dapibus viverra. Nullam commodo justo vitae ipsum laoreet rhoncus.</p>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed suscipit eros sit amet odio dapibus viverra. Nullam commodo justo vitae ipsum laoreet rhoncus.</p>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed suscipit eros sit amet odio dapibus viverra. Nullam commodo justo vitae ipsum laoreet rhoncus.</p>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed suscipit eros sit amet odio dapibus viverra. Nullam commodo justo vitae ipsum laoreet rhoncus.</p>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed suscipit eros sit amet odio dapibus viverra. Nullam commodo justo vitae ipsum laoreet rhoncus.</p>
+
+    </div>
+    </div>
+    <div class="turn-page">
+      <div class="page">
+        <h2>Página 2</h2>
+        <p>Phasellus vel nisl a mauris posuere mollis vel at velit. Vestibulum at felis nec urna euismod volutpat. Duis eu mauris in nibh consectetur euismod.</p>
+      </div>
+    </div>
+    <!-- Agrega más páginas según sea necesario -->
+  </div>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/turn.js/4.0.2/turn.min.js"></script>
+  <script>
+    $(document).ready(function() {
+      $('.magazine').turn({
+        width: 400, // Ancho del libro
+        height: 300, // Alto del libro
+        autoCenter: true // Centrar automáticamente el libro
+      });
+    });
+  </script>
+</body>
+</html>

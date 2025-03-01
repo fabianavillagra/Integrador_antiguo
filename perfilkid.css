@@ -1,0 +1,140 @@
+body {
+    margin: 0;
+    text-decoration: none;
+  }
+
+  .recomendaciones{
+    flex-grow: 1;
+    text-align:center;
+    margin-bottom: 0;
+  }
+  .elegir{
+    text-align:left;
+    text-emphasis-color: white;
+  }
+
+  .main-container {
+    display: flex; /* Usar flexbox */
+    width: 80%;
+    background-color: #804141;
+    background-image: url('images/fondolibrero.png');
+    background-size: cover;
+    background-position: center;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 0px rgba(0, 0, 0, 0.1);
+    margin: auto; /* Centrado horizontal */
+    align-items: center; /* Alineación vertical de los hijos */
+    height: 70vh; /* Altura del contenedor principal */
+}
+
+  .registromenor {
+    background-color: #ffffff;
+    width: 35%;
+    height: 80%;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-left: auto;
+    text-align: center;
+  }
+  
+  .registromenor form input[name="nombre"],
+  .registromenor form select[name="edad"],
+  .registromenor form input[type="submit"] {
+    width: calc(100% - 50px);
+    margin: 10px 10px;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #000000;
+    background-color: #ffffff;
+    color: #000000;
+  }
+  
+  .registromenor form input[type="submit"] {
+    background-color: #000000;
+    width: 50%; /* Ancho del botón */
+    color: white;
+    border: none;
+    cursor: pointer;
+    align-self: center;
+  }
+
+  .titulo-container {
+    flex-grow: 1;
+    text-align: center;
+  }
+  
+
+  .carrusel-container {
+    width: 60%; /* Reducir el ancho del contenedor */
+    margin: 0 auto; /* Centrar horizontalmente */
+    padding: 0 0px; /* Añadir padding a los costados */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: auto; /* Establece la altura al 100% del viewport */
+  }
+  
+  .carrusel {
+    display: flex;
+    flex-direction: row; /* Cambia la dirección del carrusel a horizontal */
+    justify-content: center; /* Centra los elementos horizontalmente */
+    align-items: center;
+    width: 100%; /* Ocupa todo el ancho del contenedor */
+    overflow-x: auto; /* Permite el desplazamiento horizontal */
+    scroll-behavior: smooth;
+    scrollbar-width: thin;
+    scrollbar-color: transparent transparent;
+    background-color: transparent;
+  }
+
+  .carrusel-items {
+    display: flex;
+    padding: 30px 0px;
+    overflow-x: auto; /* Permite el desplazamiento horizontal */
+    scroll-behavior: smooth; /* Agrega un desplazamiento suave al carrusel */
+    width: max-content;
+    /*width: 100%; 
+    /* Personaliza las barras de desplazamiento */
+    scrollbar-width: thin;
+    scrollbar-color: transparent transparent;
+    background-color: transparent;
+  }
+  
+  .carrusel-items::-webkit-scrollbar {
+    width: 6px; /* Ancho de la barra de desplazamiento */
+  }
+  
+  .carrusel-items::-webkit-scrollbar-track {
+    background-color: transparent; /* Color de fondo de la barra de desplazamiento */
+  }
+  
+  .carrusel-items::-webkit-scrollbar-thumb {
+    background-color: transparent; /* Color de la barra de desplazamiento */
+  }
+  
+
+
+  .carrusel-item {
+    width: 200px; /* Ancho y alto iguales para hacer las imágenes cuadradas */
+    height: 200px; /* Ancho y alto iguales para hacer las imágenes cuadradas */
+    border-radius: 50%; /* Hace que las imágenes sean circulares */
+    cursor: pointer;
+    flex-shrink: 0;
+    margin-right: 20px;
+    margin-left: 20px;
+  }
+  
+  .carrusel-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: conver;
+  }
+  
+  .carrusel-item:hover {
+    transform: scale(1.1);
+  }
+  

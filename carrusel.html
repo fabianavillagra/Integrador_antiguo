@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Carrusel Automatico</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+
+    <div class="menu-horizontal">
+        <div class="nombre">
+          <div class="content">
+            <button onclick="toggleMenu()">☰</button>
+          </div>
+          
+          
+        </div>
+        <div class="crear">
+          <button class="crear">CREAR</button>
+        </div>
+        <div class="titulo-container">
+          <h1 class="titulo">WRITELIT</h1>
+        </div>
+        <div class="buscador">
+          <input type="text" placeholder="Buscar...">
+        </div>
+
+        <div class="contenedor">
+          <div class="usuario">
+            <img src="images/usuario.png" alt="Usuario" id="usuario" onclick="toggleMenu()" />
+          </div>
+      
+        </div>
+        
+      </div>
+
+      <div class="menu-horizontal">
+        <a href="carrusel.html" class="boton">CULTURA/LENGUA</a>
+        <a href="index.html" class="boton">AUTORES/AS</a>
+        <a href="integrador3/index.html" class="boton">GÉNERO</a>
+        <a href="carrusel.html" class="boton">CATEGORÍA</a>
+      </div>
+      
+      <div class="categoria">
+        <h2 class="titulo">CATEGORÍA</h2>
+      </div>
+      <div class="carrusel">
+        <div class="carrusel-items">
+          <div class="carrusel-item">
+            <a href="index.html"><img src="images/tema_1.png"></a>
+          </div>
+          <div class="carrusel-item">
+            <a href="index.html"><img src="images/tema_2.png"></a>           
+          </div>
+          <div class="carrusel-item">
+            <a href="index.html"><img src="images/tema_3.png"></a>
+          </div>
+          <div class="carrusel-item">
+            <a href="index.html"><img src="images/tema_4.png"></a>
+          </div>
+          <div class="carrusel-item">
+            <a href="index.html"><img src="images/tema_5.png"></a>
+          </div>
+          <div class="carrusel-item">
+            <a href="index.html"><img src="images/tema_6.png"></a>
+          </div>
+          <div class="carrusel-item">
+            <a href="index.html"><img src="images/tema_7.png"></a>
+          </div>
+          <div class="carrusel-item">
+            <a href="index.html"><img src="images/tema_8.png"></a>
+          </div>
+          <div class="carrusel-item">
+            <a href="index.html"><img src="images/tema_9.png"></a>
+          </div>
+          <div class="carrusel-item">
+            <a href="index.html"><img src="images/tema_10.png"></a>
+          </div>
+        </div>
+        
+        <div class="botones-container">
+          <div class="botones-carrusel">
+            <button id="anterior">&lt;</button>
+            <button id="siguiente">&gt;</button>
+          </div>
+        </div>
+
+
+      </div>
+          
+    <script src="main.js"></script>
+  </body>
+</html>

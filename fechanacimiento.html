@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Verificación de Edad</title>
+  <link rel="stylesheet" href="fechanacimiento.css">
+</head>
+<body>
+  <div class="background">
+    <div class="card">
+      <h1>¡Hola!</h1>
+      <p>Ingresa tu año de nacimiento. Es solo para verificar tu edad. No almacenaremos esta información.</p>
+      <form action="perfilkid.php" method="post" id="ageVerificationForm">
+        <input type="text" name="birth_year" id="birth_year" placeholder="####" maxlength="4" class="year-input">
+        <button type="submit" name="submit" id="submitButton" class="submit-btn" disabled>ENVIAR</button>
+      </form>
+      
+      <!-- Mensaje de error si es menor de 18 años -->
+      <p class="error-message">Lo siento, debes tener al menos 18 años para registrarte.</p>
+
+      <script>
+        document.addEventListener('DOMContentLoaded', function() {
+          var birthYearInput = document.getElementById('birth_year');
+          var submitButton = document.getElementById('submitButton');
+          var ageVerificationForm = document.getElementById('ageVerificationForm');
+          var errorMessage = document.querySelector('.error-message');
+
+          birthYearInput.addEventListener('input', function() {
+            var birthYear = this.value.trim(); // Elimina espacios en blanco
+            var currentYear = new Date().getFullYear();
+
+            if (birthYear.length === 4 && !isNaN(birthYear)) {
+              var age = currentYear - parseInt(birthYear);
+
+              if (age < 18) {
+                submitButton.disabled = true;
+                errorMessage.style.display = 'block'; // Muestra el mensaje de error
+              } else {
+                submitButton.disabled = false;
+                errorMessage.style.display = 'none'; // Oculta el mensaje de error
+              }
+            } else {
+              submitButton.disabled = true;
+              errorMessage.style.display = 'none'; // Oculta el mensaje de error
+            }
+          });
+
+          ageVerificationForm.addEventListener('submit', function(event) {
+            var birthYear = birthYearInput.value.trim();
+
+            if (birthYear.length !== 4 || isNaN(birthYear)) {
+              event.preventDefault(); // Evita el envío del formulario si no es un número de 4 dígitos
+            }
+          });
+        });
+      </script>
+    </div>
+  </div>
+</body>
+</html>
+

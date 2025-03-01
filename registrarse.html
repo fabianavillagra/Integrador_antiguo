@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>REGISTRO</title>
+    <link rel="stylesheet" type="text/css" href="registrarse.css">
+    <link href="https://fonts.googleapis.com/css?family=Poppins:600&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/a81368914c.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+	<script type="text/javascript">
+		const inputs = document.querySelectorAll(".input");
+	
+		function addClass() {
+			let parent = this.parentNode.parentNode;
+			parent.classList.add("focus");
+		}
+	
+		function removeClass() {
+			let parent = this.parentNode.parentNode;
+			if (this.value === "") {
+				parent.classList.remove("focus");
+			}
+		}
+	
+		inputs.forEach(input => {
+			input.addEventListener("focus", addClass);
+			input.addEventListener("blur", removeClass);
+		});
+	</script>
+	
+</head>
+<body>
+    <img class="wave" src="">
+    <div class="container">
+        <div class="img">
+            <img src="images/imagenlogin (1).png">
+        </div>
+        <div class="login-content">
+            <form action="php/registrar.php" method="post"> <!-- Cambia el action a la ruta correcta -->
+                <img src="images/usuario_login.png">
+                <h2 class="title">WELCOME</h2>
+                <div class="input-div one">
+                    <div class="i">
+                            <i class="fas fa-user"></i>
+                    </div>
+                    <div class="div">
+                            <h5>Nombre Completo</h5>
+                            <input type="text" class="input" name="txtNombre">
+                    </div>
+                 </div>
+                <div class="input-div one">
+                   <div class="i">
+                        <i class="fas fa-user"></i>
+                   </div>
+                   <div class="div">
+                        <h5>Username</h5>
+                        <input type="text" class="input" name="txtUsuario">
+                   </div>
+                </div>
+                <div class="input-div pass">
+                   <div class="i"> 
+                        <i class="fas fa-lock"></i>
+                   </div>
+                   <div class="div">
+                        <h5>Password</h5>
+                        <input type="password" class="input" name="txtContra">
+                   </div>              
+                </div>
+                <div class="input-div one">
+                    <div class="i">
+                            <i class="fas fa-user"></i>
+                    </div>
+                    <div class="div">
+                        <h5>Cargo</h5>
+                        <select class="input" name="txtCargo">
+                            <option value="" selected disabled></option>
+                            <option value="2">Empleado</option>
+                            <option value="3">Padre</option>
+                            <option value="4">Madre</option>
+                            <option value="5">Tutor/a</option>
+                            <option value="6">Autor/a</option>
+                            <option value="7">Profesor/a</option>
+                        </select>
+                    </div>
+                 </div>
+                <a href="login.html">INICIAR SESION</a>
+                <input type="submit" class="btn" value="registrarse">
+                <a href="index.html"> VOLVER AL INICIO </a>
+            </form>
+        </div>
+    </div>
+    <script type="text/javascript" src="registrarse.js"></script>
+</body>
+</html>

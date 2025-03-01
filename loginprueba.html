@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Iniciar sesión con Google</title>
+  <script src="https://apis.google.com/js/platform.js" async defer></script>
+  <script>
+    function onSignIn(googleUser) {
+      const profile = googleUser.getBasicProfile();
+      console.log('ID: ' + profile.getId()); // ID único del usuario
+      console.log('Nombre: ' + profile.getName()); // Nombre del usuario
+      console.log('Imagen: ' + profile.getImageUrl()); // URL de la imagen del perfil
+      console.log('Email: ' + profile.getEmail()); // Email del usuario
+    }
+  </script>
+</head>
+<body>
+  <!-- Botón de inicio de sesión de Google -->
+  <div class="g-signin2" data-onsuccess="onSignIn"></div>
+</body>
+</html>

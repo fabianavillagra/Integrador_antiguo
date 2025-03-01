@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tabla de Autores</title>
+    <link rel="stylesheet" href="autores.css" />
+    <style>
+        
+    </style>
+</head>
+<body>
+    <?php include 'php/headerautores.php' ?>
+
+    <?php
+    include_once "php/conexion.php";
+    $sentencia = $bd->query("select * from autores");
+    $usuarios = $sentencia->fetchAll(PDO::FETCH_OBJ);
+    ?>
+
+    <div class="container mt-5">
+        <div class="row justify-content-center">
+            <div class="col-md-7">
+                <!-- inicio alerta -->
+                <?php 
+                    if(isset($_GET['mensaje']) and $_GET['mensaje'] == 'falta'){
+                ?>
+                <div class="alert alert-danger">
+                    <strong>Error!</strong> Rellena todos los campos.
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+                <?php 
+                    }
+                ?>
+
+
+                <?php 
+                    if(isset($_GET['mensaje']) and $_GET['mensaje'] == 'registrado'){
+                ?>
+                <div class="alert alert-success">
+                    <strong>Registrado!</strong> Se agregaron los datos.
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+                <?php 
+                    }
+                ?>   
+                
+                
+
+                <?php 
+                    if(isset($_GET['mensaje']) and $_GET['mensaje'] == 'error'){
+                ?>
+                <div class="alert alert-danger">
+                    <strong>Error!</strong> Vuelve a intentar.
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+                <?php 
+                    }
+                ?>   
+
+
+
+                <?php 
+                    if(isset($_GET['mensaje']) and $_GET['mensaje'] == 'editado'){
+                ?>
+                <div class="alert alert-success">
+                    <strong>Cambiado!</strong> Los datos fueron actualizados.
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+                <?php 
+                    }
+                ?> 
+
+
+                <?php 
+                    if(isset($_GET['mensaje']) and $_GET['mensaje'] == 'eliminado'){
+                ?>
+                <div class="alert alert-warning">
+                    <strong>Eliminado!</strong> Los datos fueron borrados.
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+                <?php 
+                    }
+                ?> 
+                <!-- Botón Volver -->
+                <div class="volver">
+                    <a href="../../integrador4/admin/admin.html"><button type="button">VOLVER</button></a>
+                </div>
+                <!-- fin alerta -->
+                <div class="card">
+                    <div class="card-header">
+                        Lista de Autores
+                    </div>
+                    <div class="card-body">
+                        <table>
+                            <thead>
+                                
+                                <tr>
+                                    <th scope="col">ID</th>
+                                    <th scope="col">NOMBRE COMPLETO</th>
+                                    <th scope="col">PAÍS</th>
+                                    <th scope="col">CANT OBRAS</th>
+                                    <th scope="col">FECHA DE NACIMIENTO</th>
+                                    <th scope="col">NÚMERO DE CONTACTO</th>
+                                    <th scope="col">CORREO</th>
+                                    <th scope="col">CIUDAD</th>
+                                    <th scope="col" colspan="2">Opciones</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <?php foreach($usuarios as $dato){ ?>
+                                <tr>
+                                    <td><?php echo $dato->id; ?></td>
+                                    <td><?php echo $dato->nombre_completo; ?></td>
+                                    <td><?php echo $dato->pais; ?></td>
+                                    <td><?php echo $dato->cant_obras; ?></td>
+                                    <td><?php echo $dato->fecha_nacimiento; ?></td>
+                                    <td><?php echo $dato->num_contacto; ?></td>
+                                    <td><?php echo $dato->correo; ?></td>
+                                    <td><?php echo $dato->ciudad; ?></td>
+                                    <td>
+                                        <a class="text-success" href="php/editarautores.php?id=<?php echo $dato->id; ?>">
+                                            Editar
+                                        </a>
+                                    </td>
+                                    <td>
+                                        <a onclick="return confirm('Estás seguro de eliminar?');" class="text-danger" href="php/eliminarautores.php?id=<?php echo $dato->id; ?>">
+                                            Eliminar
+                                        </a>
+                                    </td>
+                                </tr>
+                                <?php } ?>
+                            </tbody>
+                        </table>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col-md-4">
+                    <div class="card">
+                        <div class="card-header">
+                            Ingresar datos:
+                        </div>
+                        <div class="card-body">
+                            <form method="POST" action="registrarautores.php">
+                                <div class="mb-3">
+                                    <label class="form-label">Nombre:</label>
+                                    <input type="text" class="form-control" name="txtNombre" autofocus required>
+                                </div>
+                                <div class="mb-3">
+                                    <label class="form-label">País:</label>
+                                    <input type="text" class="form-control" name="txtPais" autofocus required>
+                                </div>
+                                <div class="mb-3">
+                                    <label class="form-label">Ciudad:</label>
+                                    <input type="text" class="form-control" name="txtCiudad" autofocus required>
+                                </div>
+                                <div class="mb-3">
+                                    <label class="form-label">Correo:</label>
+                                    <input type="email" class="form-control" name="txtCorreo" autofocus required>
+                                </div>
+                                <div class="mb-3">
+                                    <label class="form-label">Número de Contacto:</label>
+                                    <input type="number" class="form-control" name="txtNumero" autofocus required>
+                                </div>
+                                <div class="mb-3">
+                                    <label class="form-label">Fecha de Nacimiento:</label>
+                                    <input type="date" class="form-control" name="txtFechaNacimiento" autofocus required>
+                                </div>
+                                <div class="mb-3">
+                                    <label class="form-label">Cantidad de obras:</label>
+                                    <input type="number" class="form-control" name="txtCantObras" autofocus required>
+                                </div>
+                                <div class="d-grid">
+                                    <input type="hidden" name="oculto" value="1">
+                                    <input type="submit" class="btn btn-primary" value="Registrar Autor/a">                     
+                                </div>     
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Agrega tus archivos JS adicionales aquí si los tienes -->
+</body>
+</html>
